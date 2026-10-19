@@ -1,0 +1,60 @@
+name: Build and Release Resume PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compile LaTeX to PDF
+        id: compile_latex
+        uses: xu-cheng/latex-action@v3
+        continue-on-error: true
+        with:
+          root_file: Omar_Hamad_Resume.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Fallback to Python PDF Build if LaTeX fails
+        if: steps.compile_latex.outcome != 'success'
+        run: |
+          python -m pip install --upgrade pip
+          pip install reportlab pymupdf
+          python build_pdf.py
+
+      - name: Update latest git tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -fa latest -m "Release for ${{ github.sha }}"
+          git push origin latest --force
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Omar Hamad - Resume (Latest)"
+          body: |
+            ### Automated Resume Build
+            - **Commit:** `${{ github.sha }}`
+            - **Download Latest PDF:** [Omar_Hamad_Resume.pdf](https://github.com/${{ github.repository }}/releases/download/latest/Omar_Hamad_Resume.pdf)
+          draft: false
+          prerelease: false
+          make_latest: true
+          files: |
+            Omar_Hamad_Resume.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
