@@ -1,3 +1,6 @@
+# PDF output (releases are published via CI)
+*.pdf
+
 # LaTeX temporary files
 *.aux
 *.fls
