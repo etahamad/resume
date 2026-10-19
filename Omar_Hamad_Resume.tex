@@ -1,0 +1,154 @@
+%-------------------------------------------------------------------------------
+% Resume in LaTeX
+% Author : Omar Hamad
+% Format : Clean, ATS-friendly, Single-Page Monochrome Resume
+% Compatible with: Overleaf, TeX Live, MiKTeX, MacTeX
+%-------------------------------------------------------------------------------
+
+\documentclass[letterpaper,9.5pt]{article}
+
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+% Tight page geometry for a complete, elegant single-page layout
+\geometry{
+  letterpaper,
+  left=0.38in,
+  right=0.38in,
+  top=0.34in,
+  bottom=0.34in
+}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting - Pure Monochrome with thin horizontal rule
+\titleformat{\section}{
+  \vspace{-3pt}\scshape\raggedright\small\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
+
+% Custom list styling - Clean hyphens instead of dots, compact spacing
+\newcommand{\resumeItem}[1]{
+  \item\fontsize{8.2}{10.5}\selectfont{
+    {#1 \vspace{-1.5pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1.5pt}\item
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $|$ \textbf{#2} & \textbf{#3} \\
+      \textit{\fontsize{8.0}{9.5}\selectfont#4} & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, label={-}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------------------------------------------
+% RESUME CONTENT
+%-------------------------------------------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\fontsize{17}{20}\selectfont \textbf{Omar Hamad}} \\[2.5pt]
+    {\fontsize{7.3}{9.5}\selectfont 10th of Ramadan City, Egypt \ $|$ \ +20 101 573 8110 \ $|$ \ +1 202 780 3114 \ $|$ \ \href{mailto:etatldr@gmail.com}{\underline{etatldr@gmail.com}} \ $|$ \ \href{https://etahamad.com}{\underline{etahamad.com}} \ $|$ \ \href{https://www.linkedin.com/in/omgr}{\underline{linkedin.com/in/omgr}} \ $|$ \ \href{https://github.com/etahamad}{\underline{github.com/etahamad}}}
+\end{center}
+\vspace{-2pt}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Coca-Cola HBC}{Azure DevOps Engineer}
+      {04.2026 - Present}
+      {New Cairo, Egypt (Hybrid)}
+      \resumeItemListStart
+        \resumeItem{Designed and maintained enterprise YAML CI/CD pipelines and deployment templates in Azure DevOps, accelerating delivery velocity by 45\% and reducing failures by 35\%.}
+        \resumeItem{Automated workflows with PowerShell, Bash, and REST APIs, integrating Azure DevOps with ServiceNow and Power BI to synchronize telemetry and save 25+ hours weekly.}
+        \resumeItem{Administered Azure DevOps organizations, repos, service connections, and RBAC across 15+ engineering teams, standardizing IaC configurations to 99.5\% compliance.}
+        \resumeItem{Orchestrated release processes across environments, conducting systematic root cause analyses (RCA) and dashboards that cut MTTR by 50\% with 99.9\% uptime.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {IQVIA}{DevOps Engineer}
+      {03.2025 - 04.2026}
+      {New Cairo, Egypt}
+      \resumeItemListStart
+        \resumeItem{Led end-to-end infrastructure migration for a government healthcare system serving 4M+ users across staging and production, provisioning 42+ servers and migrating 500GB+ databases within 3 months.}
+        \resumeItem{Migrated a custom on-premises datacenter to Microsoft Azure within 1 month, configuring 6 core servers, firewalls, load balancers, and 20+ services for high availability.}
+        \resumeItem{Engineered centralized CI/CD pipelines and GitOps workflows using Jenkins, ArgoCD, and Ansible across 200+ hybrid Linux servers, cutting deployment time by 65\%.}
+        \resumeItem{Deployed Grafana, Prometheus, and the ELK Stack to monitor 20+ critical applications and Kubernetes clusters, managing 15,000+ log events/min and driving MTTR reduction.}
+        \resumeItem{Provided 24/7 on-call production support (resolving 50+ P0/L2 incidents with $<$30 min MTTR); ran monthly DR drills and runbooks that reduced repeat incidents by 40\%.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Transforma Studios}{Software Engineer L3}
+      {03.2024 - 12.2024}
+      {New York, United States (Remote)}
+      \resumeItemListStart
+        \resumeItem{Architected high-throughput backend microservices and RESTful APIs using .NET, C\#, Go (Gin, GORM), PostgreSQL, EF Core, and Redis, ensuring sub-second response times.}
+        \resumeItem{Architected data models and backend services for an academic platform, enabling course management, office hours scheduling, and administrative workflows.}
+        \resumeItem{Built real-time stock processing engine using RabbitMQ and Go, integrated OpenAI APIs for automation, and deployed zero-downtime Kubernetes services via Traefik.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {3Sixty}{DevOps \& Systems Engineer}
+      {08.2023 - 01.2024}
+      {Georgia, United States (Remote)}
+      \resumeItemListStart
+        \resumeItem{Developed NetSuite process automations via SuiteScript 2.1 API, delivering a 60x acceleration in billing cycles and financial report generation.}
+        \resumeItem{Engineered real-time uptime monitoring portal (\href{https://status.3sixtydental.com}{\underline{status.3sixtydental.com}}) and led full-stack engineering of a QMS platform with Vue.js and Go (GORM).}
+        \resumeItem{Managed multi-cloud infrastructure across Azure, AWS, and GCP, optimizing resource provisioning, cloud spend, and automating HR data synchronization.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Future Academy}{Bachelor of Computer Science}
+      {2019 - 2023}
+      {Cairo, Egypt}
+      \resumeItemListStart
+        \resumeItem{GPA: 3.24 / 4.0 $|$ Graduation Project: Excellent (A+) $|$ Head of DevOps Engineer at Google Developer Student Clubs (GDSC FA) for 2 years.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.12in, label={}]
+    \fontsize{8.0}{10.5}\selectfont{\item{
+     \textbf{DevOps \& CI/CD:} Azure DevOps (Pipelines, Repos, Boards, Artifacts), YAML Pipelines, CI/CD, Jenkins, GitHub Actions, ArgoCD (GitOps), Helm, CircleCI \\ \vspace{1.5pt}
+     \textbf{Automation \& Scripting:} PowerShell, Bash Scripting, Python, REST APIs, Workflow Automation, Platform Administration \\ \vspace{1.5pt}
+     \textbf{Cloud \& Infrastructure as Code:} Microsoft Azure, AWS, GCP, Infrastructure as Code (IaC), Terraform, Azure Bicep, Ansible, CloudFormation, Cloud Operations \\ \vspace{1.5pt}
+     \textbf{Enterprise Tools \& Observability:} ServiceNow Integration, Power BI Dashboards, Prometheus, Grafana, ELK Stack (Elasticsearch, Logstash, Kibana), Azure Monitor, Log Analytics \\ \vspace{1.5pt}
+     \textbf{Containers \& Platform Engineering:} Docker, Kubernetes (AKS/K8s), Traefik, Nginx, Apache Web Server, Linux/Unix Administration, Platform Engineering \\ \vspace{1.5pt}
+     \textbf{Methodologies \& Databases:} Git, GitFlow, Agile, Scrum, SAFe, DevSecOps, Microservices, RabbitMQ, Redis, SQL (PostgreSQL, MySQL), Database Migration
+    }}
+ \end{itemize}
+
+%-------------------------------------------------------------------------------
+\end{document}
